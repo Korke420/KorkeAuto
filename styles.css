@@ -1,0 +1,46 @@
+/* styles.css */
+
+body {
+    background-color: #f4f4f4; /* Šviesiai pilka fonas */
+    color: #333; /* Tamsiai pilka tekstas */
+    font-family: Arial, sans-serif; /* Šrifto šeima */
+}
+
+h1 {
+    color: #4CAF50; /* Žalia spalva */
+    text-align: center; /* Centruoti tekstą */
+}
+
+label {
+    display: block; /* Bloko rodinys */
+    margin-top: 10px; /* Viršutinė atstumo */
+    font-weight: bold; /* Paryškintas tekstas */
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%; /* Plotis 100% */
+    padding: 8px; /* Vidinė užpildymo erdvė */
+    margin-top: 5px; /* Viršutinė atstumo */
+    border: 1px solid #ddd; /* Šviesiai pilka riba */
+    border-radius: 4px; /* Suapvalinti kampai */
+}
+
+button {
+    background-color: #4CAF50; /* Žalia spalva */
+    color: white; /* Balta spalva tekstui */
+    border: none; /* Nėra ribos */
+    padding: 10px 20px; /* Vidinė užpildymo erdvė */
+    text-align: center; /* Teksto centravimas */
+    text-decoration: none; /* Nėra pabraukimo */
+    display: inline-block; /* Eilutės blokas */
+    font-size: 16px; /* Šrifto dydis */
+    margin-top: 10px; /* Viršutinė atstumo */
+    cursor: pointer; /* Rodyklė kaip rodyklė */
+    border-radius: 4px; /* Suapvalinti kampai */
+}
+
+button:hover {
+    background-color: #45a049; /* Šiek tiek tamsesnė žalia */
+}
