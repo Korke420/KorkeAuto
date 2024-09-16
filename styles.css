@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automobilių supirkimas visoje Lietuvoje</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Įtraukti CSS failą -->
+
+    <!-- Open Graph metaduomenys -->
+    <meta property="og:title" content="Automobilių supirkimas visoje Lietuvoje">
+    <meta property="og:description" content="Parduokite savo automobilį greitai ir lengvai su mūsų paslaugomis visoje Lietuvoje.">
+    <meta property="og:image" content="https://i.imgur.com/Eqrarht.jpg"> <!-- Pakeistas paveikslėlio URL -->
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:type" content="website">
+    <style>
+        /* Bendras stilius */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="tel"],
+        textarea,
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Sklandžios animacijos klasės */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive dizainas */
+        @media (max-width: 600px) {
+            form {
+                padding: 10px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="fade-in">Automobilių supirkimas visoje Lietuvoje</h1>
+
+    <!-- Paveikslėlio peržiūros nuoroda -->
+    <img src="https://i.imgur.com/Eqrarht.jpg" alt="Automobilių supirkimas" class="fade-in">
+
+    <form action="https://formspree.io/f/xblrezel" method="POST" enctype="multipart/form-data" class="fade-in">
+        <label for="modelis">Automobilio modelis/markė:</label>
+        <input type="text" id="modelis" name="modelis" required><br>
+
+        <label for="bukle">Būklė:</label>
+        <input type="text" id="bukle" name="bukle" required><br>
+
+        <label for="privalumai">Privalumai:</label>
+        <textarea id="privalumai" name="privalumai" required></textarea><br>
+
+        <label for="metai">Pagaminimo metai:</label>
+        <input type="number" id="metai" name="metai" required><br>
+
+        <label for="variklis">Variklis:</label>
+        <input type="text" id="variklis" name="variklis" required><br>
+
+        <label for="technine_apziura">Tech. apžiūra:</label>
+        <input type="text" id="technine_apziura" name="technine_apziura" required><br>
+
+        <label for="defektai">Defektai:</label>
+        <textarea id="defektai" name="defektai"></textarea><br>
+
+        <label for="kaina">Kaina:</label>
+        <input type="number" id="kaina" name="kaina" required><br>
+
+        <label for="miestas">Miestas:</label>
+        <input type="text" id="miestas" name="miestas" required><br>
+
+        <label for="telefonas">Kontaktinis telefonas:</label>
+        <input type="tel" id="telefonas" name="telefonas"><br>
+
+        <label for="photos">Įkelkite nuotraukas (iki 5):</label>
+        <input type="file" id="photos" name="photos" accept="image/*" multiple><br>
+
+        <button type="submit">Siųsti</button>
+    </form>
+
+    <script>
+        // Formos patikrinimas prieš siunčiant
+        document.querySelector('form').addEventListener('submit', function (e) {
+            let modelis = document.getElementById('modelis').value;
+            let metai = document.getElementById('metai').value;
+            
+            // Paprastas patikrinimas (pvz., ar metai yra logiški)
+            if (metai < 1950 || metai > new Date().getFullYear()) {
+                alert("Nurodykite galiojančius pagaminimo metus.");
+                e.preventDefault(); // Neleisti siųsti formos
+            }
+
+            if (modelis === "") {
+                alert("Prašome įvesti automobilio modelį.");
+                e.preventDefault();
+            }
+        });
+
+        // Elementų rodomų efektas slenkant (sklandžios animacijos)
+        const fadeInElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        fadeInElements.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
